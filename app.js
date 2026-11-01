@@ -53,3 +53,5 @@ viewport.addEventListener('keydown', event => {
   if(event.key === 'Home') { event.preventDefault(); resetView(); }
 });
 window.addEventListener('resize', resetView);
+// Let touch users scroll the page instead of trapping the gesture inside the map.
+viewport.addEventListener('pointerdown', event => { if(event.pointerType === 'touch') endDrag(); });
