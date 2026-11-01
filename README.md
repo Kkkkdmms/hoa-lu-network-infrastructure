@@ -28,4 +28,6 @@ Không cài thêm thư viện UI để giữ nguyên công nghệ tĩnh và gi�
 
 ## Trạng thái phát hành
 
-Chưa có production được xác minh. Chỉ xác nhận hoàn tất sau khi URL HTTPS truy cập công khai được, kiểm thử các trang con, pan/zoom, tìm kiếm và kích thước điện thoại. Ảnh preview.png tạo ở lượt trước là minh họa bố cục, không phải ảnh kiểm thử browser.
+Production: https://kkkkdmms.github.io/hoa-lu-network-infrastructure/ . Repository: https://github.com/Kkkkdmms/hoa-lu-network-infrastructure . GitHub Pages từ nhánh main, thư mục gốc, HTTPS bắt buộc. Đã mở trên Chrome và trình duyệt độc lập phiên GitHub, kiểm tra 3 trang, popup, zoom, tìm kiếm TC02, lọc 2 ca một phần, chế độ trình bày và màn hình 390 px. Ảnh kiểm thử thật lưu riêng trong outputs/kiem-thu-thuc-te; preview.png ở lượt đầu chỉ là minh họa cũ.
+
+
