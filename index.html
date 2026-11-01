@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171146">
+  <meta name="description" content="Hồ sơ học thuật và dashboard hạ tầng mạng LAN — Trường Đại học Hoa Lư.">
+  <title>Hạ tầng mạng LAN | Đại học Hoa Lư</title>
+  <link rel="icon" type="image/png" href="assets/hoa-lu-logo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Bỏ qua điều hướng</a>
+  <header class="topbar">
+    <div class="brand-lockup">
+      <img src="assets/hoa-lu-logo.png" width="51" height="51" alt="Logo Trường Đại học Hoa Lư" class="brand-logo">
+      <div><span class="brand-kicker">TRƯỜNG ĐẠI HỌC HOA LƯ</span><strong>HỒ SƠ HẠ TẦNG MẠNG</strong></div>
+    </div>
+    <nav class="topnav" aria-label="Điều hướng chính">
+      <a href="#overview">Tổng quan</a><a href="#topology">Kiến trúc</a><a href="#addressing">IP &amp; VLAN</a><a href="#validation">Kiểm chứng</a><a href="kiem-thu.html">21 ca kiểm thử</a><a href="tai-lieu.html">Tài liệu</a>
+    </nav>
+    <button class="presentation-toggle" id="presentationToggle" type="button" aria-pressed="false">◉ <span>Trình bày</span></button>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="overview">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> ĐỒ ÁN HẠ TẦNG MẠNG · HỒ SƠ HỌC THUẬT</p>
+        <h1>Mạng LAN doanh nghiệp<br><em>thiết kế theo lớp, vận hành có kiểm chứng.</em></h1>
+        <p class="hero-lead">Không gian trình bày kiến trúc logic, phân hoạch VLAN và phạm vi kiểm chứng của mô hình Packet Tracer. Dữ liệu được diễn giải theo hồ sơ bàn giao ngày 01.11.2026.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#topology">Khám phá kiến trúc <span>↘</span></a><a class="text-link" href="#validation">Xem phạm vi kiểm chứng <span>→</span></a></div>
+      </div>
+      <div class="hero-mark" aria-hidden="true"><span>HL</span><i></i><b>NETWORK<br>INFRASTRUCTURE</b></div>
+      <div class="hero-foot"><span>HỒ SƠ THIẾT KẾ &amp; VẬN HÀNH</span><span>PHIÊN BẢN 01.11.2026</span><span>01 — 04</span></div>
+    </section>
+
+    <section class="section" aria-labelledby="metrics-title">
+      <div class="section-heading compact"><div><p class="eyebrow">TỔNG QUAN DỰ ÁN</p><h2 id="metrics-title">Một mô hình, nhiều lớp bảo vệ.</h2></div><p>Nguồn: full-tests/results.json và hồ sơ thiết kế ngày 01.11.2026.</p></div>
+      <div class="metric-grid">
+        <article class="metric-card"><span class="metric-index">01 / PHÂN ĐOẠN</span><strong>10</strong><div><b>VLAN trong thiết kế</b><small>10–99 · người dùng, máy chủ, IoT, thoại, khách, quản trị</small></div></article>
+        <article class="metric-card"><span class="metric-index">02 / DỰ PHÒNG</span><strong>02</strong><div><b>Core Layer 3</b><small>HSRP và liên kết EtherChannel theo hồ sơ</small></div></article>
+        <article class="metric-card"><span class="metric-index">03 / KIỂM THỬ</span><strong>19<span>/21</span></strong><div><b>Đạt trong phạm vi</b><small>2 kịch bản một phần, chưa tuyên bố hoàn tất</small></div></article>
+        <article class="metric-card metric-highlight"><span class="metric-index">04 / TRẠNG THÁI</span><strong><i></i></strong><div><b>Hồ sơ minh bạch</b><small>Cập nhật lần cuối · 01 tháng 11, 2026</small></div></article>
+      </div>
+    </section>
+
+    <section class="section topology-section" id="topology">
+      <div class="section-heading"><div><p class="eyebrow">KIẾN TRÚC LOGIC</p><h2>Đường đi của kết nối</h2></div><p>Sơ đồ khái quát hóa từ báo cáo và hồ sơ cấu hình. Chọn một nút để xem vai trò và ghi chú; kéo để di chuyển, cuộn để phóng to.</p></div>
+      <div class="diagram-shell" style="position:relative">
+        <div class="diagram-toolbar"><div><span class="diagram-status"><i></i> SƠ ĐỒ TƯƠNG TÁC</span><span class="diagram-hint">Kéo nền để pan · Cuộn để zoom</span></div><div class="diagram-controls"><button id="zoomOut" aria-label="Thu nhỏ">−</button><span id="zoomLabel">100%</span><button id="zoomIn" aria-label="Phóng to">+</button><button id="fitView" aria-label="Vừa khung">Vừa khung</button></div></div>
+        <div class="diagram-viewport" id="diagramViewport" tabindex="0" aria-label="Sơ đồ kiến trúc mạng tương tác">
+          <div class="diagram-canvas" id="diagramCanvas">
+            <svg class="connections" viewBox="0 0 1100 600" aria-hidden="true">
+<path d="M550 98 L550 130"/>
+<path d="M550 208 L550 235 L245 235 L245 280"/>
+<path d="M550 235 L855 235 L855 280"/>
+<path class="peer-link" d="M395 320 L705 320"/>
+<text x="550" y="309" text-anchor="middle">PEER / LACP</text>
+<path class="redundant" d="M200 358 L200 405 L167 405 L167 480"/>
+<path class="redundant" d="M245 358 L245 425 L549 425 L549 480"/>
+<path class="redundant" d="M290 358 L290 445 L932 445 L932 480"/>
+<path class="alt" d="M810 358 L810 390 L180 390 L180 480"/>
+<path class="alt" d="M855 358 L855 410 L562 410 L562 480"/>
+<path class="alt" d="M900 358 L900 430 L945 430 L945 480"/>
+</svg>
+            <button class="node node-wan" data-node="wan"><span class="node-icon">◎</span><span><small>WAN SIMULATION</small><b>Internet mô phỏng</b><em>Miền kiểm thử của Packet Tracer</em></span><span class="node-number">01</span></button>
+            <button class="node node-edge" data-node="edge"><span class="node-icon">⇄</span><span><small>PERIMETER</small><b>EDGE Router</b><em>NAT/PAT · định tuyến biên</em></span><span class="node-number">02</span></button>
+            <button class="node node-core1" data-node="core1"><span class="node-icon">⌘</span><span><small>CORE LAYER 3 · PRIMARY</small><b>CORE1 · Catalyst 3560</b><em>SVI · HSRP · ACL · LACP</em></span><span class="node-number">03A</span></button>
+            <button class="node node-core2" data-node="core2"><span class="node-icon">⌘</span><span><small>CORE LAYER 3 · REDUNDANT</small><b>CORE2 · Catalyst 3560</b><em>SVI · HSRP · ACL · LACP</em></span><span class="node-number">03B</span></button>
+            <button class="node node-access1" data-node="access1"><span class="node-icon">▤</span><span><small>ACCESS LAYER · FLOOR 01</small><b>SW-T1</b><em>VLAN 10 · SALES</em></span><span class="node-number">04</span></button>
+            <button class="node node-access2" data-node="access2"><span class="node-icon">▤</span><span><small>ACCESS LAYER · FLOOR 02</small><b>SW-T2</b><em>VLAN 20 · 30 · 40</em></span><span class="node-number">05</span></button>
+            <button class="node node-access3" data-node="access3"><span class="node-icon">▤</span><span><small>ACCESS LAYER · FLOOR 03</small><b>SW-T3</b><em>VLAN 50 · 60 · 70 · 90 · 99</em></span><span class="node-number">06</span></button>
+          </div>
+        </div>
+        <aside class="node-detail" id="nodeDetail" aria-live="polite"><span class="detail-tag">GHI CHÚ KIẾN TRÚC</span><p>Chọn một thiết bị trong sơ đồ để xem vai trò và phạm vi thông tin đã đối chiếu.</p><button id="closeDetail" type="button" aria-label="Đóng thông tin">×</button></aside>
+        <div class="diagram-legend"><span><i class="legend-core"></i> Core dự phòng</span><span><i class="legend-access"></i> Liên kết access</span><span><i class="legend-wan"></i> WAN mô phỏng</span><span class="diagram-note">Sơ đồ vai trò logic. VLAN 80 Guest có trong bảng thiết kế; vị trí cổng/AP không suy ra từ sơ đồ cũ.</span></div>
+      </div>
+    </section>
+
+    <section class="section addressing-section" id="addressing">
+      <div class="section-heading"><div><p class="eyebrow">PHÂN HOẠCH ĐỊA CHỈ</p><h2>Không gian VLAN &amp; IP</h2></div><p>Thông tin theo hồ sơ thiết kế. Địa chỉ gateway hiển thị theo kế hoạch báo cáo; việc xác minh trạng thái từng SVI được ghi riêng ở phần kiểm thử.</p></div>
+      <div class="table-wrap"><table><thead><tr><th>VLAN</th><th>Phân khu</th><th>Subnet</th><th>Gateway theo hồ sơ</th><th>Vai trò</th></tr></thead><tbody>
+        <tr><td><span class="vlan-id">10</span></td><td>SALES</td><td><code>10.10.10.0/24</code></td><td><code>10.10.10.1</code></td><td>Kinh doanh</td></tr>
+        <tr><td><span class="vlan-id">20</span></td><td>BGĐ</td><td><code>10.10.20.0/24</code></td><td><code>10.10.20.1</code></td><td>Ban Giám đốc</td></tr>
+        <tr><td><span class="vlan-id">30</span></td><td>HR</td><td><code>10.10.30.0/24</code></td><td><code>10.10.30.1</code></td><td>Nhân sự</td></tr>
+        <tr><td><span class="vlan-id">40</span></td><td>ACCOUNTING</td><td><code>10.10.40.0/24</code></td><td><code>10.10.40.1</code></td><td>Kế toán</td></tr>
+        <tr><td><span class="vlan-id">50</span></td><td>IT</td><td><code>10.10.50.0/24</code></td><td><code>10.10.50.1</code></td><td>Nhân viên IT</td></tr>
+        <tr><td><span class="vlan-id">60</span></td><td>SERVER</td><td><code>10.10.60.0/24</code></td><td><code>10.10.60.1</code></td><td>Dịch vụ nội bộ</td></tr>
+        <tr><td><span class="vlan-id">70</span></td><td>CAM_IOT</td><td><code>10.10.70.0/24</code></td><td><code>10.10.70.1</code></td><td>Camera &amp; IoT</td></tr>
+        <tr><td><span class="vlan-id">80</span></td><td>GUEST</td><td><code>10.10.80.0/24</code></td><td><code>10.10.80.1</code></td><td>Truy cập khách · cô lập nội bộ</td></tr>
+        <tr><td><span class="vlan-id">90</span></td><td>VOICE</td><td><code>10.10.90.0/24</code></td><td><code>10.10.90.1</code></td><td>Thoại IP</td></tr>
+        <tr><td><span class="vlan-id">99</span></td><td>MGMT</td><td><code>10.10.99.0/24</code></td><td><code>10.10.99.1</code></td><td>Quản trị thiết bị</td></tr>
+      </tbody></table></div>
+      <p class="table-caption"><span>10 phân đoạn · dải RFC1918 dùng trong mô hình học tập</span><span>Không có dịch vụ nào kết nối tới mạng nội bộ từ website này.</span></p>
+    </section>
+
+    <section class="section validation-section" id="validation">
+      <div class="section-heading"><div><p class="eyebrow">MINH BẠCH KIỂM THỬ</p><h2>Kết quả đi cùng giới hạn.</h2></div><p>Chỉ trình bày thống kê và trạng thái phạm vi. Xem chi tiết quan sát và giới hạn của từng ca trong hồ sơ kiểm thử.</p></div>
+      <div class="validation-grid"><article class="validation-summary"><div class="ring"><span><b>19</b><small>/ 21</small></span></div><div><span class="status-pill status-pass">● Đạt trong phạm vi</span><h3>19 kịch bản</h3><p>Hồ sơ ghi nhận kết quả đạt đối với tiêu chí được mô tả cho từng ca.</p></div></article><article class="validation-summary"><div class="partial-mark">02</div><div><span class="status-pill status-partial">◐ Một phần</span><h3>2 kịch bản</h3><p>TC02 còn thiếu gateway ở một số VLAN; FT02 mới cô lập kết nối CORE1, chưa xác minh tắt nguồn vật lý.</p></div></article></div>
+      <p><a class="button button-primary" href="kiem-thu.html">Tra cứu đầy đủ 21 ca kiểm thử</a></p><div class="scope-note"><span class="scope-icon">i</span><div><b>Phạm vi mô phỏng</b><p>“Internet” và các luồng NAT/PAT trong đồ án thuộc môi trường Cisco Packet Tracer; kết quả không đại diện cho kết nối Internet thật. Website này là hồ sơ tĩnh, không truy cập Packet Tracer, VM, router hoặc mạng LAN của người dùng.</p></div></div>
+    </section>
+
+    <section class="closing-band"><div><p class="eyebrow">TRƯỜNG ĐẠI HỌC HOA LƯ · HỒ SƠ ĐỒ ÁN</p><h2>Thiết kế rõ ràng.<br>Giới hạn được nói rõ.</h2></div><a class="button button-light" href="#overview">Về đầu trang ↑</a></section>
+  </main>
+  <footer><div class="footer-brand"><img src="assets/hoa-lu-logo.png" width="32" height="32" loading="lazy" alt=""><span>HỒ SƠ HẠ TẦNG MẠNG<small>Trình bày học thuật · Bản tĩnh</small></span></div><span>© 2026 · Tài liệu đồ án học tập</span><span>Không chứa thông tin xác thực hoặc cấu hình quản trị.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
